@@ -3,19 +3,24 @@ function preload() {
         loadImage("images/love.png"),
         loadImage("images/mops1.png"),
         loadImage("images/mops2.png"),
-        loadImage("images/mops3.png")
+        loadImage("images/mops3.png"),
+        loadImage("images/background.png"),
+        loadImage("images/kruasan.png"),
+        loadImage("images/cupcake.png"),
     ]
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight)
+    noStroke()
     initialize()
 }
 
 function initialize() {
     mops = new Mops()
     foodSpawner = new FoodSpawner()
-    happiness = new Happiness(width - 132, 32, 100, 30)
+    happiness = new Happiness(48, 48, width * 0.23, 24)
+    score = new Score(48, 150)
     gameSpeed = 1
     stop = false
     time = 0
@@ -25,19 +30,20 @@ function draw() {
     if (stop == true) {
         return;
     }
-    clear()
+    image(images[4], 0, 0, width, height)
 
     mops.move()
     foodSpawner.move()
     gameSpeed += 0.0001
     time += 1
 
-    mops.draw()
-    happiness.draw()
     foodSpawner.draw()
-    fill("blue")
-    textSize(30)
-    text("survived: " + time, 32, 32)
+    happiness.draw()
+    score.draw()
+    mops.draw()
+    // fill("blue")
+    // textSize(30)
+    // text("survived: " + time, 32, 32)
 }
 
 function mousePressed() {

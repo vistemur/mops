@@ -5,3 +5,4 @@ let gameSpeed
 let stop
 let images
 let time
+let score

@@ -1,4 +1,4 @@
-class Kruasan extends ScreenElement{
+class Food extends ScreenElement{
 
     constructor(x, w, h) {
         super(0, 0, 0, 0)
@@ -9,6 +9,8 @@ class Kruasan extends ScreenElement{
         this.y = -w / 2
         this.width = w
         this.height = h
+        this.points = 0
+        this.superTasty = false
     }
 
     move() {
@@ -16,10 +18,5 @@ class Kruasan extends ScreenElement{
             this.speed += this.maxSpeed / this.timeToMaxSpeed
         }
         this.y += this.speed * gameSpeed
-    }
-
-    drawRect(x, y, w, h) {
-        fill("red")
-        rect(x, y, this.width, this.height)
     }
 }
