@@ -18,10 +18,20 @@ class Mops extends ScreenElement {
         this.stop = this.speeding;
         if (keyIsDown(LEFT_ARROW)) {
             this.moving -= this.speeding;
+            touchLocation = null
             this.stop = 0;
         }
         if (keyIsDown(RIGHT_ARROW)) {
             this.moving += this.speeding;
+            touchLocation = null
+            this.stop = 0;
+        }
+        if (touchLocation != null) {
+            if (touchLocation.x > width / 2) {
+                this.moving += this.speeding
+            } else {
+                this.moving -= this.speeding
+            }
             this.stop = 0;
         }
         if (this.moving > this.maxSpeed) {

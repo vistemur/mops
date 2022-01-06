@@ -6,3 +6,4 @@ let stop
 let images
 let time
 let score
+let touchLocation

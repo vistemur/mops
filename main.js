@@ -41,9 +41,6 @@ function draw() {
     happiness.draw()
     score.draw()
     mops.draw()
-    // fill("blue")
-    // textSize(30)
-    // text("survived: " + time, 32, 32)
 }
 
 function mousePressed() {
@@ -78,4 +75,12 @@ function collision(rect1, rect2) {
         }
     }
     return false
+}
+
+function touchStarted() {
+    touchLocation = createVector(mouseX, mouseY)
+}
+
+function touchMoved() {
+    touchLocation = createVector(mouseX, mouseY)
 }
